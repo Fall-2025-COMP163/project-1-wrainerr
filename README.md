@@ -1,99 +1,78 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/JTXl4WMa)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=21183258&assignment_repo_type=AssignmentRepo)
-# COMP 163 - Project 1: Character Creator & Chronicles
-# 🎯 Project Overview
+Project 1: RPG Character Creator
 
-Build a text-based RPG character creation and story progression system that demonstrates mastery of functions and file I/O operations.
+This project is a Python-based command-line application that allows users to create, save, load, and manage simple characters for a role-playing game (RPG).
 
-# Required Functions 
-Complete these functions in project1_starter.py:
+Game Concept
 
-create_character(name, character_class) - Create new character
+The world is a classic fantasy setting where adventurers can belong to one of four classes: Mage, Warrior, Rogue, or Cleric. This application serves as the foundation for an RPG, allowing a player to create a new character, assign them a name and class, and generate their starting statistics.
 
-calculate_stats(character_class, level) - Calculate character stats
+Characters begin at Level 1 with 100 gold. They can be saved to a text file to persist between sessions and loaded back into the game later. The system also supports a level_up feature that increases a character's level and improves their stats, showing progression.
 
-save_character(character, filename) - Save character to file
+Design Choices
 
-load_character(filename) - Load character from file
+The core design revolves around the calculate_stats function, which determines a character's abilities based on their class and level.
 
-display_character(character) - Display character info
+Class-Based Stat Specialization
 
-level_up(character) - Increase character level
+Base stats at Level 1 are designed to give each class a unique feel:
 
-# 🎭 Character Classes
-Implement these character classes with unique stat distributions:
+Warrior: High Strength (15) and Health (100), but low Magic (5). Designed to be a durable melee fighter.
 
+Mage: High Magic (15) and medium Health (80), but very low Strength (5). Designed to be a powerful but fragile spellcaster.
 
-Warrior: High strength, low magic, high health
+Rogue: Balanced Strength (10) and Magic (10), but low Health (70). A "jack-of-all-trades" character.
 
-Mage: Low strength, high magic, medium health
+Cleric: High Magic (12) and Health (90), with medium Strength (8). A hybrid class that can heal and withstand combat.
 
-Rogue: Medium strength, medium magic, low health
+Stat Scaling Formula
 
-Cleric: Medium strength, high magic, high health
+To ensure characters grow stronger as they level up, a simple linear scaling formula is applied on top of the base stats:
 
-# 📁 Required File Format
-Your save_character() function must create files in this exact format:
+Strength: Base Strength + (Level * 2)
 
-Character Name: [name]
+Magic: Base Magic + (Level * 1)
 
-Class: [class]
+Health: Base Health + (Level * 10)
 
-Level: [level]
+This formula is applied universally to all classes. This means that while all characters get stronger, their core class specialization (e.g., a Warrior's high strength) is maintained and amplified as they level.
 
-Strength: [strength]
+Bonus Creative Features
 
-Magic: [magic]
+Level Up System: Includes a level_up function that not only increments the character's level but also automatically recalculates their stats based on the scaling formula.
 
-Health: [health]
+Human-Readable Save Files: The save_character function saves data in a simple .txt file with clear key-value pairs (e.g., Class: Mage). This makes it easy to read, debug, or even manually edit character files outside of the game.
 
-Gold: [gold]
+Four-Class System: Implements four distinct classes (Warrior, Mage, Rogue, Cleric), providing a solid foundation for different playstyles.
 
+AI Usage
 
-# Run specific test file
-python -m pytest tests/test_character_creation.py -v
+AI was used to make this README.md file, as well as help debugging the load_character() function to properly read the file's content and parse it to re-create the dictionary.
 
-# Test your main program
+How to Run
+
+This is a Python script and can be run from any terminal that has Python 3 installed.
+
+Save the code as project1_starter.py.
+
+Open your terminal or command prompt.
+
+Navigate to the directory where you saved the file.
+
+Run the script using the following command:
+
 python project1_starter.py
 
-GitHub Testing:
 
-After pushing your code, check the Actions tab to see automated test results:
+Running the file directly will execute the test code located in the if __name__ == "__main__": block. This test will:
 
-✅ Green checkmarks = tests passed
-❌ Red X's = tests failed (click to see details)
+Create a "TestHero" of the "Warrior" class.
 
-# ⚠️ Important Notes
-Protected Files
+Display the new character's sheet.
 
-DO NOT MODIFY files in the tests/ directory
+Save the character to my_character.txt.
 
-DO NOT MODIFY files in the .github/ directory
+Load the character from the file.
 
-Modifying protected files will result in automatic academic integrity violation
+Level up the character to Level 2.
 
-# AI Usage Policy
-
-✅ Allowed: AI assistance for implementation, debugging, learning
-
-📝 Required: Document AI usage in code comments
-
-🎯 Must be able to explain: Every line of code during interview
-
-# 📝 Submission Checklist
-
- All required functions implemented
- 
- Code passes all automated tests
- 
- README updated with your documentation
- 
- Interview scheduled and completed
- 
- AI usage documented in code comments
-
-# 🏆 Grading
-
-Implementation (70%): Function correctness, file operations, error handling
-
-Interview (30%): Code explanation and live coding challenge
+Display the character's updated sheet with new stats.
