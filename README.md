@@ -46,7 +46,8 @@ Four-Class System: Implements four distinct classes (Warrior, Mage, Rogue, Cleri
 
 AI Usage
 
-AI was used to make this README.md file, as well as help debugging the load_character() function to properly read the file's content and parse it to re-create the dictionary.
+Ai assisted with generating README.md file and checking for potential errors 
+in load_character function and save_character function.
 
 How to Run
 

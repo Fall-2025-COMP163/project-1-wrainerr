@@ -4,8 +4,8 @@ COMP 163 - Project 1: Character Creator & Saving/Loading
 Name: [Your Name Here]
 Date: [Date]
 
-AI Usage: Ai assisted with generating README.md file 
-Example: AI helped with file I/O error handling logic in save_character function
+AI Usage: Ai assisted with generating README.md file and checking for potential errors 
+in load_character function and save_character function.
 """
 
 def create_character(name, character_class):
@@ -47,8 +47,6 @@ def calculate_stats(character_class, level):
         str_base, mag_base, hp_base = (8, 12, 90)
 
     # Scale stats with level
-    # Example: Add +2 STR, +1 MAG, +10 HP per level for a Warrior
-    # You can design your own formulas!
     strength = str_base + (level * 2) 
     magic = mag_base + (level * 1)
     health = hp_base + (level * 10)
